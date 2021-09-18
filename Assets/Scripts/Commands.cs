@@ -8,7 +8,6 @@ public class MovePlayerCommand : CommandBase
 		prevZ = player.ZPos;
 		
 		player.MoveTo(x, z);
-		InputHandler.undoQueue.Add(this);
 	}
 
 	public override void Undo()

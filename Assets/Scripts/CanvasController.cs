@@ -23,4 +23,17 @@ public class CanvasController : MonoBehaviour
         p1.interactable = true;
         p2.interactable = false;
     }
+
+    public void Undo()
+    {
+        if(InputHandler.CurrentInMoveHistory == 0) return;
+        InputHandler.MoveHistory[InputHandler.CurrentInMoveHistory--].Undo();
+    }
+
+    public void Redo()
+    {
+        if(InputHandler.CurrentInMoveHistory == InputHandler.MoveHistory.Count - 1) return;
+        
+        InputHandler.MoveHistory[++InputHandler.CurrentInMoveHistory].Execute();
+    }
 }
