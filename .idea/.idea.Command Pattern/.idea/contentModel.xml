@@ -8,7 +8,8 @@
       <e p="Assets" t="Include">
         <e p="CanvasController.cs" t="Include" />
         <e p="Scripts" t="Include">
-          <e p="Command.cs" t="Include" />
+          <e p="CommandBase.cs" t="Include" />
+          <e p="Commands.cs" t="Include" />
           <e p="InputHandler.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
         </e>

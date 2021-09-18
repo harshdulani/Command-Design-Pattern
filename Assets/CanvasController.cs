@@ -12,14 +12,14 @@ public class CanvasController : MonoBehaviour
 
     public void ControlP1()
     {
-        InputHandler.playerToControl = 1;
+        InputHandler.PlayerToControl = 1;
         p1.interactable = false;
         p2.interactable = true;
     }
     
     public void ControlP2()
     {
-        InputHandler.playerToControl = 2;
+        InputHandler.PlayerToControl = 2;
         p1.interactable = true;
         p2.interactable = false;
     }

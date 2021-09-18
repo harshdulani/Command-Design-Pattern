@@ -2,23 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public void MoveLeft()
+    public float XPos => transform.position.x;
+    public float ZPos => transform.position.z;
+    
+    public void MoveTo(float x, float z)
     {
-        transform.position += Vector3.left;
-    }
-
-    public void MoveRight()
-    {
-        transform.position += Vector3.right;
-    }
-
-    public void MoveForward()
-    {
-        transform.position += Vector3.forward;
-    }
-
-    public void MoveBack()
-    {
-        transform.position += Vector3.back;
+        transform.position = new Vector3(x, transform.position.y, z);
     }
 }
