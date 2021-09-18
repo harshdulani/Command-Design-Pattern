@@ -2,29 +2,39 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    private PlayerController myController;
-    private Command upArrow, downArrow, leftArrow, rightArrow;
+    public static int playerToControl = 1;
+    public PlayerController[] players;
+    private Command _upArrow, _downArrow, _leftArrow, _rightArrow;
 
     private void Start()
     {
-        myController = GetComponent<PlayerController>();
         DefineControls();
-    }
-
-    private void DefineControls()
-    {
-        upArrow = new FrontCommand();
-        downArrow = new BackCommand();
-        leftArrow = new LeftCommand();
-        rightArrow = new RightCommand();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) upArrow.Execute(myController);
-        if (Input.GetKeyDown(KeyCode.DownArrow)) downArrow.Execute(myController);
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) leftArrow.Execute(myController);
-        if (Input.GetKeyDown(KeyCode.RightArrow)) rightArrow.Execute(myController);
+        var input = HandleInput();
+
+        input?.Execute(players[playerToControl - 1]);
+    }
+
+
+    private void DefineControls()
+    {
+        _upArrow = new FrontCommand();
+        _downArrow = new BackCommand();
+        _leftArrow = new LeftCommand();
+        _rightArrow = new RightCommand();
+    }
+
+    private Command HandleInput()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow)) return _upArrow;
+        if (Input.GetKeyDown(KeyCode.DownArrow)) return _downArrow;
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) return _leftArrow;
+        if (Input.GetKeyDown(KeyCode.RightArrow)) return _rightArrow;
+
+        return null;
     }
 }
 

@@ -6,6 +6,7 @@
     <e p="E:\Workspace\Command Pattern" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="CanvasController.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Command.cs" t="Include" />
           <e p="InputHandler.cs" t="Include" />
